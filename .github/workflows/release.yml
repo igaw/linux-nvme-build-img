@@ -33,4 +33,3 @@ jobs:
             ghcr.io/igaw/linux-nvme-build-img
             ghcr.io/igaw/linux-nvme-build-img:${{ env.RELEASE_VERSION }}
             ghcr.io/igaw/linux-nvme-build-img:latest-release
-            ${{ steps.meta.outputs.tags }}
