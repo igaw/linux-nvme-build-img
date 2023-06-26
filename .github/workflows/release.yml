@@ -30,6 +30,6 @@ jobs:
           platforms: linux/amd64,linux/arm64,linux/armhf,linux/ppc64el,linux/s390x
           push: true
           tags: |
-            ghcr.io/igaw/linux-nvme-build-img/linux-nvme-build-img
-            ghcr.io/igaw/linux-nvme-build-img/linux-nvme-build-img:${{ env.RELEASE_VERSION }}
-            ghcr.io/igaw/linux-nvme-build-img/linux-nvme-build-img:latest-release
+            ghcr.io/igaw/linux-nvme-build-img
+            ghcr.io/igaw/linux-nvme-build-img:${{ env.RELEASE_VERSION }}
+            ghcr.io/igaw/linux-nvme-build-img:latest-release
