@@ -9,6 +9,6 @@ RUN apt-get update && \
     apt-get install --no-install-recommends -y \
     meson gcc clang pkg-config \
     libjson-c-dev libssl-dev libdbus-1-dev libkeyutils-dev \
-    ca-certificates git make libpam-dev libcap-ng-dev libpkgconf-dev libcurl4-openssl-dev && \
+    ca-certificates git make libpam-dev libcap-ng-dev libpkgconf-dev libcurl4-openssl-dev libarchive-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
