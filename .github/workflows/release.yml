@@ -27,7 +27,8 @@ jobs:
       - name: Build image
         uses: docker/build-push-action@v3
         with:
-          platforms: linux/amd64,linux/arm64,linux/armhf,linux/ppc64el,linux/s390x
+          # platforms: linux/amd64,linux/arm64,linux/armhf,linux/ppc64el,linux/s390x
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ghcr.io/igaw/linux-nvme-build-img
