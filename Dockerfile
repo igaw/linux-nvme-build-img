@@ -8,6 +8,6 @@ RUN apt-get update && \
     localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 && \
     apt-get install --no-install-recommends -y \
     meson gcc clang pkg-config libjson-c-dev libssl-dev libdbus-1-dev \
-    libpam-dev libcap-ng-dev && \
+    libpam-dev libcap-ng-dev libcurl4-openssl-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
