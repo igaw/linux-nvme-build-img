@@ -16,6 +16,7 @@ RUN dpkg --add-architecture amd64 && \
     libjson-c-dev libssl-dev libdbus-1-dev libkeyutils-dev \
     ca-certificates git make libpam-dev libcap-ng-dev libpkgconf-dev libcurl4-openssl-dev libarchive-dev \
     qemu-user-static gcc-12-aarch64-linux-gnu gcc-12-arm-linux-gnueabi gcc-12-s390x-linux-gnu gcc-12-powerpc64le-linux-gnu \
+    libc6-dev:amd64 libc6-dev:arm64 libc6-dev:armhf libc6-dev:s390x libc6-dev:s390x libc-dev:ppc64el \
     libjson-c-dev:amd64 libjson-c-dev:arm64 libjson-c-dev:armhf libjson-c-dev:s390x libjson-c-dev:ppc64el \
     libssl-dev:amd64 libssl-dev:arm64 libssl-dev:armhf libssl-dev:s390x libssl-dev:ppc64el \
     libkeyutils-dev:amd64 libkeyutils-dev:arm64 libkeyutils-dev:armhf libkeyutils-dev:s390x libkeyutils-dev:ppc64el \
