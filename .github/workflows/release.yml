@@ -28,11 +28,11 @@ jobs:
       - name: Build image
         uses: docker/build-push-action@v3
         with:
-          file: Dockerfile.debian
+          file: Docker.debian
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/igaw/linux-nvme-build-img/debian:${{ RELEASE_VERSION }}
+            ghcr.io/igaw/linux-nvme-build-img/debian:${{ env.RELEASE_VERSION }}
             ghcr.io/igaw/linux-nvme-build-img/debian:latest-release
 
   deploy_cross_containers:
@@ -62,9 +62,9 @@ jobs:
       - name: Build image
         uses: docker/build-push-action@v3
         with:
-          file: Dockerfile.ubuntu.${{ matrix.arch }}
+          file: Dockerimage.ubuntu.${{ matrix.arch }}
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/igaw/linux-nvme-build-img/ubuntu-cross-${{ matrix.arch }}:${{ RELEASE_VERSION }}
+            ghcr.io/igaw/linux-nvme-build-img/ubuntu-cross-${{ matrix.arch }}:${{ env.RELEASE_VERSION }}
             ghcr.io/igaw/linux-nvme-build-img/ubuntu-cross-${{ matrix.arch }}:latest-release
