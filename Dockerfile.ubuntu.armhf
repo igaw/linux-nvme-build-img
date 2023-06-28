@@ -1,0 +1,14 @@
+FROM ubuntu:jammy
+
+ARG TARGETPLATFORM
+ARG DEBIAN_FRONTEND=noninteractive
+ENV LANG=en_US.utf8
+RUN dpkg --add-architecture armhf && \
+    sed -i -e 's/deb http/deb [arch=amd64] http/g' /etc/apt/sources.list && \
+    echo "deb [arch=armhf] http://ports.ubuntu.com/ jammy main universe restricted" > /etc/apt/sources.list.d/armhf.list && \
+    echo "deb [arch=armhf] http://ports.ubuntu.com/ jammy-updates main universe restricted" >> /etc/apt/sources.list.d/armhf.list && \
+    apt update && \
+    apt install -y \
+    meson pkg-config qemu-user-static gcc-arm-linux-gnueabihf libjson-c-dev:armhf && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
