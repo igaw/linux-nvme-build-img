@@ -32,8 +32,8 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/igaw/debian:${{ env.RELEASE_VERSION }}
-            ghcr.io/igaw/debian:latest-release
+            ghcr.io/igaw/linux-nvme/debian:${{ env.RELEASE_VERSION }}
+            ghcr.io/igaw/linux-nvme/debian:latest-release
 
   deploy_cross_containers:
     runs-on: ubuntu-latest
@@ -66,5 +66,5 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/igaw/ubuntu-cross-${{ matrix.arch }}:${{ env.RELEASE_VERSION }}
-            ghcr.io/igaw/ubuntu-cross-${{ matrix.arch }}:latest-release
+            ghcr.io/igaw/linux-nvme/ubuntu-cross-${{ matrix.arch }}:${{ env.RELEASE_VERSION }}
+            ghcr.io/igaw/linux-nvme/ubuntu-cross-${{ matrix.arch }}:latest-release
