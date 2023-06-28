@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy_debian_containers:
-    name: Build and deploy debian container images
+    name: debian container
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
@@ -28,7 +28,7 @@ jobs:
       - name: Build image
         uses: docker/build-push-action@v3
         with:
-          file: Docker.debian
+          file: Dockerfile.debian
           platforms: linux/amd64
           push: true
           tags: |
@@ -43,7 +43,7 @@ jobs:
           - armhf
           - ppc64le
           - s390x
-    name: Build and deploy cross container images
+    name: ubuntu cross container
     steps:
       - name: Check out repo
         uses: actions/checkout@v3
@@ -62,7 +62,7 @@ jobs:
       - name: Build image
         uses: docker/build-push-action@v3
         with:
-          file: Dockerimage.ubuntu.${{ matrix.arch }}
+          file: Dockerfile.ubuntu.${{ matrix.arch }}
           platforms: linux/amd64
           push: true
           tags: |
