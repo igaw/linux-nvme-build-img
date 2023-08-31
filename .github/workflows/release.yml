@@ -8,8 +8,13 @@ on:
 
 jobs:
   deploy_debian_containers:
-    name: debian container
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        type:
+          - debian
+          - debian.python
+    name: debian build containers
     steps:
       - name: Check out repo
         uses: actions/checkout@v3
@@ -28,11 +33,11 @@ jobs:
       - name: Build image
         uses: docker/build-push-action@v3
         with:
-          file: Dockerfile.debian
+          file: Dockerfile.${{ matrix.type }}
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/igaw/linux-nvme/debian:${{ env.RELEASE_VERSION }}
+            ghcr.io/igaw/linux-nvme/${{ matrix.type }}:${{ env.RELEASE_VERSION }}
 
   deploy_cross_containers:
     runs-on: ubuntu-latest
