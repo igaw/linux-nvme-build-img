@@ -8,6 +8,8 @@ RUN dpkg --add-architecture s390x && \
     echo "deb [arch=s390x] http://ports.ubuntu.com/ jammy main universe restricted" > /etc/apt/sources.list.d/armhf.list && \
     echo "deb [arch=s390x] http://ports.ubuntu.com/ jammy-updates main universe restricted" >> /etc/apt/sources.list.d/armhf.list && \
     apt update && \
+    apt-get install -y locales && \
+    localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 && \
     apt install -y \
     meson pkg-config qemu-user-static gcc-s390x-linux-gnu libjson-c-dev:s390x && \
     apt-get clean && \
