@@ -47,3 +47,7 @@ export PATH=$PATH:$(pwd)
 
 tools_build_samurai
 tools_build_muon
+
+mkdir bin
+mv samu bin
+mv muon bin
