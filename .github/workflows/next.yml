@@ -38,7 +38,7 @@ jobs:
 
   build_tools:
     runs-on: ubuntu-latest
-    name: build muon and samurai
+    name: build samurai and muon
     needs: build_staging
     container:
       image: ghcr.io/igaw/linux-nvme/debian.staging:next
@@ -48,7 +48,7 @@ jobs:
        run: |
          scripts/build-muon.sh
      - uses: actions/upload-artifact@v3
-       name: upload artifacts to github
+       name: samu-muon
        with:
          name: Upload artifacts
          path: bin
@@ -63,13 +63,12 @@ jobs:
     needs: build_tools
     name: debian build containers
     steps:
-      - name: Download artifact
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          workflow: ${{ github.event.workflow_run.workflow_id }}
-          workflow_conclusion: success
       - name: Check out repo
         uses: actions/checkout@v3
+      - name: Fetch samurai and muon binary
+        uses: actions/download-artifact@v3
+        with:
+          name: samu-muon
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
