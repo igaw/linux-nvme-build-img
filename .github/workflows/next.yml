@@ -67,6 +67,9 @@ jobs:
         uses: actions/checkout@v3
       - name: Download artifacts
         uses: actions/download-artifact@v3
+        with:
+          name: samu-muon
+          path: bin
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
@@ -80,6 +83,7 @@ jobs:
       - name: Build image
         uses: docker/build-push-action@v4.1.1
         with:
+          context: .
           file: Dockerfile.${{ matrix.type }}
           platforms: linux/amd64
           push: true
