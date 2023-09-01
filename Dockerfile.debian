@@ -9,7 +9,7 @@ RUN apt-get update && \
     apt-get install --no-install-recommends -y \
     meson gcc g++ clang pkg-config \
     libjson-c-dev libssl-dev libkeyutils-dev libdbus-1-dev \
-    ca-certificates git make libpam-dev libcap-ng-dev \
+    ca-certificates git make libpam libcap-ng \
     libpkgconf libcurl4-openssl libarchive && \
     apt-get update && \
     apt-get clean && \
