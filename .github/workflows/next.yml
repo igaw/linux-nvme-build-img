@@ -48,9 +48,9 @@ jobs:
        run: |
          scripts/build-muon.sh
      - uses: actions/upload-artifact@v3
-       name: samu-muon
+       name: Upload artifacts
        with:
-         name: Upload artifacts
+         name: samu-muon
          path: bin
 
   deploy_debian_containers:
@@ -65,10 +65,8 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v3
-      - name: Fetch samurai and muon binary
+      - name: Download artifacts
         uses: actions/download-artifact@v3
-        with:
-          name: samu-muon
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
