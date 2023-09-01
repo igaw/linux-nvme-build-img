@@ -7,7 +7,7 @@ on:
       - master
 
 jobs:
-  build_container:
+  build_staging:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -15,11 +15,6 @@ jobs:
           - debian
     name: debian staging build container
     steps:
-      - name: Download artifact
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          workflow: ${{ github.event.workflow_run.workflow_id }}
-          workflow_conclusion: success
       - name: Check out repo
         uses: actions/checkout@v3
       - name: Set up QEMU
@@ -44,6 +39,7 @@ jobs:
   build_tools:
     runs-on: ubuntu-latest
     name: build muon and samurai
+    needs: build_staging
     container:
       image: ghcr.io/igaw/linux-nvme/debian.staging:next
     steps:
@@ -64,6 +60,7 @@ jobs:
         type:
           - debian
           - debian.python
+    needs: build_tools
     name: debian build containers
     steps:
       - name: Download artifact
