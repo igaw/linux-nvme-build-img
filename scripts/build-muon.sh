@@ -40,3 +40,6 @@ tools_build_muon() {
 
 tools_build_samurai
 tools_build_muon
+
+cp "${SAMU}" .
+cp "${MUON}" .

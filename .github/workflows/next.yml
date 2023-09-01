@@ -51,7 +51,9 @@ jobs:
        name: upload artifacts to github
        with:
          name: Upload artifacts
-         path: '.build/build-tools/*'
+         path: |
+           'samu'
+           'muon'
 
   deploy_debian_containers:
     runs-on: ubuntu-latest
