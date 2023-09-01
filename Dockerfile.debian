@@ -13,5 +13,4 @@ RUN apt-get update && \
     apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-COPY ./samu-muon/muon /usr/bin
-COPY ./samu-muon/samu /usr/bin
+COPY ./samu-muon/* /usr/bin
