@@ -13,6 +13,8 @@ tools_build_samurai() {
     SAMU="${BUILDDIR}/build-tools/samurai/samu"
 
     popd || exit 1
+
+    cp ${SAMU} .
 }
 
 tools_build_muon() {
@@ -37,10 +39,11 @@ tools_build_muon() {
     "${MUON}" -C "${BUILDDIR}/build-tools/.build-muon" test
 
     popd || exit 1
+
+    cp "${MUON}" .
 }
+
+export PATH=$PATH:$(pwd)
 
 tools_build_samurai
 tools_build_muon
-
-cp "${SAMU}" .
-cp "${MUON}" .
