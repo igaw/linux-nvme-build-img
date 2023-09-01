@@ -1,6 +1,7 @@
 #!/bin/bash
 
 BUILDDIR="$(pwd)/.build"
+CC=${CC:-"gcc"}
 
 tools_build_samurai() {
     mkdir -p "${BUILDDIR}"/build-tools
