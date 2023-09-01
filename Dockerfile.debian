@@ -9,10 +9,9 @@ RUN apt-get update && \
     apt-get install --no-install-recommends -y \
     meson gcc g++ clang pkg-config \
     libjson-c-dev libssl-dev libkeyutils-dev libdbus-1-dev \
-    ca-certificates git make libpam libcap-ng \
-    libpkgconf libcurl4-openssl libarchive && \
+    ca-certificates git libcurl4 libarchive13 && \
     apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-COPY muon /usr/bin
-COPY samu /usr/bin
+COPY ./samu-muon/muon /usr/bin
+COPY ./samu-muon/samu /usr/bin
