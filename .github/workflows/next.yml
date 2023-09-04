@@ -16,7 +16,7 @@ jobs:
     name: debian staging build container
     steps:
       - name: Check out repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
@@ -43,7 +43,7 @@ jobs:
     container:
       image: ghcr.io/igaw/linux-nvme/debian.staging:next
     steps:
-     - uses: actions/checkout@v3
+     - uses: actions/checkout@v4
      - name: build
        run: |
          scripts/build-muon.sh
@@ -64,7 +64,7 @@ jobs:
     name: debian build containers
     steps:
       - name: Check out repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
@@ -101,7 +101,7 @@ jobs:
     name: ubuntu cross container
     steps:
       - name: Check out repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
