@@ -18,7 +18,7 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v4
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2.10.0
       - name: Login to ghcr.io
@@ -71,7 +71,7 @@ jobs:
           name: samu-muon
           path: bin
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2.10.0
       - name: Login to ghcr.io
@@ -103,7 +103,7 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v4
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2.10.0
       - name: Login to ghcr.io
