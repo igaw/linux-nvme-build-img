@@ -3,12 +3,12 @@ name: Delete old container images
 
 on:
   schedule:
-    - cron: '0 0 1 * *'  # every day at midnight
+    - cron: '50 7 * * *'
 
 jobs:
   clean-ghcr:
-    name: Delete old unused container images
-    runs-on: ubuntu-latest
+    name: cleanup images
+    runs-on: ubuntu-20.04
     steps:
       - name: Delete old images
         uses: snok/container-retention-policy@v2
