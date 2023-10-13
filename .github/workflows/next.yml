@@ -1,5 +1,5 @@
 ---
-name: next
+name: "🏗 Next"
 
 on:
   push:
