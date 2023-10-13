@@ -3,7 +3,7 @@ name: Delete old container images
 
 on:
   schedule:
-    - cron: '50 7 * * *'
+    - cron: '0 12 * * *'
 
 jobs:
   clean-ghcr:
@@ -13,7 +13,7 @@ jobs:
       - name: Delete old images
         uses: snok/container-retention-policy@v2
         with:
-          image-names: debian* ubuntu*
+          image-names: linux-nvme/debian* linux-nvme/ubuntu*
           cut-off: One week ago UTC
           keep-at-least: 1
           skip-tags: latest
