@@ -33,6 +33,7 @@ jobs:
           file: staging/Dockerfile.${{ matrix.type }}.staging
           platforms: linux/amd64
           push: true
+          provenance: false
           tags: |
             ghcr.io/igaw/linux-nvme/${{ matrix.type }}.staging:main
 
@@ -89,6 +90,7 @@ jobs:
           file: Dockerfile.${{ matrix.type }}
           platforms: linux/amd64
           push: true
+          provenance: false
           tags: |
             ghcr.io/igaw/linux-nvme/${{ matrix.type }}:${{ env.RELEASE_VERSION }}
             ghcr.io/igaw/linux-nvme/${{ matrix.type }}:latest
@@ -123,6 +125,7 @@ jobs:
           file: Dockerfile.ubuntu.${{ matrix.arch }}
           platforms: linux/amd64
           push: true
+          provenance: false
           tags: |
             ghcr.io/igaw/linux-nvme/ubuntu-cross-${{ matrix.arch }}:${{ env.RELEASE_VERSION }}
             ghcr.io/igaw/linux-nvme/ubuntu-cross-${{ matrix.arch }}:latest
