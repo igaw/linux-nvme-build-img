@@ -10,7 +10,7 @@ RUN apt-get update && \
     apt-get install --no-install-recommends -y \
     python3-distutils python3-openssl \
     make meson gcc g++ clang pkg-config \
-    libjson-c-dev libssl-dev libkeyutils-dev libdbus-1-dev \
+    libjson-c-dev libssl-dev libkeyutils-dev libdbus-1-dev swig xz-utils \
     ca-certificates git libcurl4 libarchive13 && \
     apt-get update && \
     apt-get clean && \
