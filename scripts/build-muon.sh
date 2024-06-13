@@ -23,9 +23,7 @@ tools_build_muon() {
         "${BUILDDIR}/build-tools/muon"
     pushd "${BUILDDIR}/build-tools/muon" || exit 1
 
-    CC="${CC}" ninja="${SAMU}" ./bootstrap.sh stage1
-
-    CC="${CC}" ninja="${SAMU}" stage1/muon setup        \
+    CC="${CC}" ninja="${SAMU}" meson setup              \
         -Dprefix="${BUILDDIR}/build-tools"              \
         -Dlibcurl=enabled                               \
         -Dlibarchive=enabled                            \
@@ -33,14 +31,12 @@ tools_build_muon() {
         -Ddocs=disabled                                 \
         -Dsamurai=disabled                              \
         "${BUILDDIR}/build-tools/.build-muon"
-    "${SAMU}" -C "${BUILDDIR}/build-tools/.build-muon"
-    MUON="${BUILDDIR}/build-tools/.build-muon/muon"
-
-    "${MUON}" -C "${BUILDDIR}/build-tools/.build-muon" test
+    meson compile -C "${BUILDDIR}/build-tools/.build-muon"
+    meson test -C "${BUILDDIR}/build-tools/.build-muon"
 
     popd || exit 1
 
-    cp "${MUON}" .
+    cp "${BUILDDIR}/build-tools/.build-muon/muon" .
 }
 
 export PATH=$PATH:$(pwd)
@@ -48,6 +44,6 @@ export PATH=$PATH:$(pwd)
 tools_build_samurai
 tools_build_muon
 
-mkdir bin
+mkdir -p bin
 mv samu bin
 mv muon bin
